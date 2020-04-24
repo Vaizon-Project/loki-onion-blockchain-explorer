@@ -23,16 +23,16 @@ CurrentBlockchainStatus::set_blockchain_variables(MicroCore* _mcore,
 }
 
 using BlockHeight = uint64_t;
-uint64_t const founders_locked_loki            = 1215000 * COIN;
-uint64_t const seed_locked_loki                = 581000 * COIN;
-uint64_t const half_seed_locked_loki           = seed_locked_loki * COIN / 2;
-static std::map<BlockHeight, uint64_t> time_locked_loki =
+uint64_t const founders_locked_vaizon            = 1215000 * COIN;
+uint64_t const seed_locked_vaizon                = 581000 * COIN;
+uint64_t const half_seed_locked_vaizon           = seed_locked_vaizon * COIN / 2;
+static std::map<BlockHeight, uint64_t> time_locked_vaizon =
 {
     {0,      871500 * COIN},
-    {69456,  founders_locked_loki + seed_locked_loki},
-    {134079, founders_locked_loki + seed_locked_loki},
-    {198639, founders_locked_loki + seed_locked_loki},
-    {263423, founders_locked_loki + half_seed_locked_loki}
+    {69456,  founders_locked_vaizon + seed_locked_vaizon},
+    {134079, founders_locked_vaizon + seed_locked_vaizon},
+    {198639, founders_locked_vaizon + seed_locked_vaizon},
+    {263423, founders_locked_vaizon + half_seed_locked_vaizon}
 };
 
 void
@@ -171,12 +171,12 @@ CurrentBlockchainStatus::calculate_emission_in_blocks(uint64_t start_blk, uint64
 
       if (start_blk == 0)
       {
-        for (auto const &it : time_locked_loki)
+        for (auto const &it : time_locked_vaizon)
             emission_calculated.circulating_supply -= it.second;
       }
 
-      auto unlock_it = time_locked_loki.find(start_blk);
-      if (unlock_it != time_locked_loki.end())
+      auto unlock_it = time_locked_vaizon.find(start_blk);
+      if (unlock_it != time_locked_vaizon.end())
           unlocked += unlock_it->second;
     }
 
@@ -320,7 +320,7 @@ CurrentBlockchainStatus::is_thread_running()
    return is_running;
 }
 
-bf::path CurrentBlockchainStatus::blockchain_path {"/home/mwo/.loki/lmdb"};
+bf::path CurrentBlockchainStatus::blockchain_path {"/home/mwo/.vaizon/lmdb"};
 
 cryptonote::network_type CurrentBlockchainStatus::nettype {cryptonote::network_type::MAINNET};
 

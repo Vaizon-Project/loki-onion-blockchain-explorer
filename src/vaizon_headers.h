@@ -2,17 +2,17 @@
 // Created by mwo on 5/11/15.
 //
 
-#ifndef LOKEG01_LOKI_HEADERS_H_H
-#define LOKEG01_LOKI_HEADERS_H_H
+#ifndef LOKEG01_VAIZON_HEADERS_H_H
+#define LOKEG01_VAIZON_HEADERS_H_H
 
 #define DB_LMDB   2
 #define BLOCKCHAIN_DB DB_LMDB
 
 
-#define UNSIGNED_TX_PREFIX "Loki unsigned tx set\003"
-#define SIGNED_TX_PREFIX "Loki signed tx set\003"
-#define KEY_IMAGE_EXPORT_FILE_MAGIC "Loki key image export\002"
-#define OUTPUT_EXPORT_FILE_MAGIC "Loki output export\003"
+#define UNSIGNED_TX_PREFIX "Vaizon unsigned tx set\003"
+#define SIGNED_TX_PREFIX "Vaizon signed tx set\003"
+#define KEY_IMAGE_EXPORT_FILE_MAGIC "Vaizon key image export\002"
+#define OUTPUT_EXPORT_FILE_MAGIC "Vaizon output export\003"
 
 #define FEE_ESTIMATE_GRACE_BLOCKS 10 // estimate fee valid for that many blocks
 
@@ -43,5 +43,5 @@
 #include "string_coding.h"
 
 
-#endif //LOKEG01_LOKI_HEADERS_H_H
+#endif //LOKEG01_VAIZON_HEADERS_H_H
 

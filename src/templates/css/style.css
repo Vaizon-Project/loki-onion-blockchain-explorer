@@ -22,7 +22,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .PageButton {
-    background-color: #008522;
+    background-color: #fe4350;
     min-height: 1.5em;
     padding: 5px;
     padding-top: 8px;
@@ -58,13 +58,13 @@ h1, h2, h3, h4, h5, h6 {
 
 .TableHeader {
     font-weight: bold;
-    background-color: #008522;
+    background-color: #fe4350;
 }
 
 .TitleDivider {
     height: 2px;
     width: 100%;
-    background-color: #008522;
+    background-color: #fe4350;
     margin-bottom: 1em;
 }
 
@@ -125,7 +125,7 @@ form {
 
 .style-1 input[type="text"]:focus,
 .style-1 input[type="text"].focus {
-    border: solid 1px #008522;
+    border: solid 1px #fe4350;
 }
 h1, h2, h3, h4, h5, h6 { color: white; }
 
@@ -163,7 +163,7 @@ h1, h2, h3, h4, h5, h6 { color: white; }
     padding-top: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
-    border-top: 2px solid #008522;
+    border-top: 2px solid #fe4350;
 }
 
 [type=radio]:checked ~ label {
@@ -232,10 +232,10 @@ td.quorum-pubkey span {
 
 th.subheader {
     text-align: left;
-    border-bottom: 2px solid #008522;
+    border-bottom: 2px solid #fe4350;
 }
 
-td span.checkpoint-signed { color: #008522; }
+td span.checkpoint-signed { color: #fe4350; }
 td span.checkpoint-not-signed { color: #c50022; }
 
 .omg {

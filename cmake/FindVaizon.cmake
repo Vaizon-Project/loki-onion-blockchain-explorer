@@ -2,8 +2,8 @@
 # CMake helper for the majority of the cpp-ethereum modules.
 #
 # This module defines
-#     LOKI_XXX_LIBRARIES, the libraries needed to use ethereum.
-#     LOKI_FOUND, If false, do not try to use ethereum.
+#     VAIZON_XXX_LIBRARIES, the libraries needed to use ethereum.
+#     VAIZON_FOUND, If false, do not try to use ethereum.
 #
 # File addetped from cpp-ethereum
 #
@@ -32,7 +32,7 @@ set(LIBS common;blocks;cryptonote_basic;cryptonote_core;multisig;randomx;
 		cryptonote_protocol;daemonizer;mnemonics;epee;lmdb;device;
 		blockchain_db;ringct;wallet;cncrypto;easylogging;version;checkpoints)
 
-	set(LOK_INCLUDE_DIRS "${CPP_VAIZON_DIR}")
+	set(VZN_INCLUDE_DIRS "${CPP_VAIZON_DIR}")
 
 # if the project is a subset of main cpp-ethereum project
 # use same pattern for variables as Boost uses
@@ -41,38 +41,38 @@ foreach (l ${LIBS})
 
 	string(TOUPPER ${l} L)
 
-	find_library(LOK_${L}_LIBRARY
+	find_library(VZN_${L}_LIBRARY
 		NAMES ${l}
 		PATHS ${CMAKE_LIBRARY_PATH}
 		PATH_SUFFIXES "/src/${l}" "/src/" "/external/db_drivers/lib${l}" "/lib" "/src/crypto" "/contrib/epee/src" "/external/easylogging++/" "/external/randomx/"
 		NO_DEFAULT_PATH
 	)
 
-	set(LOK_${L}_LIBRARIES ${LOK_${L}_LIBRARY})
+	set(VZN_${L}_LIBRARIES ${VZN_${L}_LIBRARY})
 
-    message(STATUS FindLoki " LOK_${L}_LIBRARIES ${LOK_${L}_LIBRARY}")
+    message(STATUS FindVaizon " VZN_${L}_LIBRARIES ${VZN_${L}_LIBRARY}")
 
 	add_library(${l} STATIC IMPORTED)
-	set_property(TARGET ${l} PROPERTY IMPORTED_LOCATION ${LOK_${L}_LIBRARIES})
+	set_property(TARGET ${l} PROPERTY IMPORTED_LOCATION ${VZN_${L}_LIBRARIES})
 
 endforeach()
 
-if (EXISTS ${LOKI_BUILD_DIR}/src/ringct/libringct_basic.a)
-	message(STATUS FindLoki " found libringct_basic.a")
+if (EXISTS ${VAIZON_BUILD_DIR}/src/ringct/libringct_basic.a)
+	message(STATUS FindVaizon " found libringct_basic.a")
 	add_library(ringct_basic STATIC IMPORTED)
 	set_property(TARGET ringct_basic
-		PROPERTY IMPORTED_LOCATION ${LOKI_BUILD_DIR}/src/ringct/libringct_basic.a)
+		PROPERTY IMPORTED_LOCATION ${VAIZON_BUILD_DIR}/src/ringct/libringct_basic.a)
 endif()
 
 
-message(STATUS ${LOKI_SOURCE_DIR}/build)
+message(STATUS ${VAIZON_SOURCE_DIR}/build)
 
-# include loki headers
+# include vaizon headers
 include_directories(
-    ${LOKI_SOURCE_DIR}/src
-    ${LOKI_SOURCE_DIR}/external
-    ${LOKI_SOURCE_DIR}/build
-    ${LOKI_SOURCE_DIR}/external/easylogging++
-    ${LOKI_SOURCE_DIR}/contrib/epee/include
-    ${LOKI_SOURCE_DIR}/external/loki-mq
-    ${LOKI_SOURCE_DIR}/external/db_drivers/liblmdb)
+    ${VAIZON_SOURCE_DIR}/src
+    ${VAIZON_SOURCE_DIR}/external
+    ${VAIZON_SOURCE_DIR}/build
+    ${VAIZON_SOURCE_DIR}/external/easylogging++
+    ${VAIZON_SOURCE_DIR}/contrib/epee/include
+    ${VAIZON_SOURCE_DIR}/external/loki-mq
+    ${VAIZON_SOURCE_DIR}/external/db_drivers/liblmdb)
