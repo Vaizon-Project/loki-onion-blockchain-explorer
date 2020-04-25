@@ -41,6 +41,8 @@ h1, h2, h3, h4, h5, h6 {
 .Wrapper {
     width: 80%;
     margin: auto;
+    border: 1px solid #585858;
+    padding: 20px;
 }
 
 .Header {
@@ -54,6 +56,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .Table {
     width: 100%;
+    border: 1px solid #5F5F5F;
 }
 
 .TableHeader {
